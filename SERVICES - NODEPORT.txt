@@ -1,0 +1,34 @@
+	• Kubernetes Services helps us connect applications together with other applications or users.
+
+	• There are three types of service:
+
+		○ Nodeport
+		○ Clusterip
+		○ LoadBalancer
+
+	• SERVICE NODEPORT:
+
+	• In this request is listened to a port on the worker node, then worker node pass the request on same port to the service port and service port pass the request to port of pod on which application is running.
+
+	• Port on node is "nodeport", port of service is referred as "port" and port of pod is referred as "target port" as it is the target to which request has to be send.
+
+	• Service is just like a virtual server, it has its own ip.
+
+	• Service-definition file:
+
+		apiVersion: v1
+		Kind: Service
+		Metadata:
+		  name: myapp
+		Spec:
+		 type:NodePort
+		 ports:
+		  - targetPort: 80
+		    port: 80
+		    nodePort: 8087
+		 selector:      #this should refer labels of pod
+		   app: myapp
+		   type: front-end
+
+
+	• Application is accessible on: http://<node-ip-on-which-application-is-deployed>:<nodeport>

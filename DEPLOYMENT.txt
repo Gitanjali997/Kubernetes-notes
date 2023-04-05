@@ -1,0 +1,27 @@
+	• The deployment provides us with the capability to upgrade the underlying instances seamlessly using rolling updates, Undo changes and pause and resume changes as required.
+	• In case a new deployment is to be made so rolling update strategy is used by default in which one pod is made down at a time and in place of it new pod is brought up and so on.
+
+	• Deployment manifest file:
+
+		apiVersion: apps/v1
+		Kind: Deployment
+		metadata:
+		  name: myapp-deployment
+		  labels:
+		    app: myapp
+		    type: frontend
+		Spec:
+		    template:                                        #this is pod definition
+		      metadata:
+		         name: myapp-pod
+		         labels:
+		          app: myapp
+		           type: frontend
+		      spec:
+		         containers:
+		          - name: nginx-container
+		             image: nginx
+		   replicas: 3
+		   selector:
+		       matchLabels:
+		         name: myapp

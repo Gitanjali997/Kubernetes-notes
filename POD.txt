@@ -1,0 +1,11 @@
+	• The containers are encapsulated into a Kubernetes object known as pods
+
+	• A pod is a single instance of an application.
+
+	• A pod is the smallest object that you can create in Kubernetes.
+
+	• We can create multiple instances (pods) of our application to scale our application. Multiple instances can be either on same node or multiple nodes (in case a node capacity is full).
+
+	• A pod can have a single container of same type or multiple different containers (e.g. a web app container and a helper container inside same pod)
+
+	• Command: kubectl run nginx --image=nginx (this command creates a pod nginx automatically using nginx image pulled from docker hub and deploys the pod)

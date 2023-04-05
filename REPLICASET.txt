@@ -1,0 +1,33 @@
+	• Replication controller is used to orchestrate containers by creating multiple instances of pod.
+
+	• Replication controller and replicaset both have almost same configuration except that replicaset have a selector field in which we define match labels which has the same value as that of labels under pod definition.
+
+	• Selector field is used so that replicaset knows which pod has to be created (in case of scaling the pods which are not pre available) or monitored (existing pods).
+
+	• Sample replicaset definition file:
+
+		apiVersion: apps/v1
+		Kind: Replicaset
+		metadata:
+		  name: myapp-replicaset
+		  labels:
+		    app: myapp
+		    type: frontend
+		Spec:
+		    template:                                        #this is pod definition
+		      metadata:
+		         name: myapp-pod
+		         labels:
+		           name: myapp
+		           type: frontend
+		      spec:
+		         containers:
+		          - name: nginx-container
+		             image: nginx
+		   replicas: 3
+		   selector:
+		       matchLabels:
+		         name: myapp
+   
+
+	• Selector matchlabels should have same value as pod labels because then only repliacset will know which pod is to be monitored and scaled.

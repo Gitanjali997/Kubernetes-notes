@@ -1,0 +1,5 @@
+Kubectl rollout status deployment/myapp-deployment
+
+Kubectl rollout history deployment/myapp-deployment
+
+Kubectl rollout undo deployment/myapp-deployment

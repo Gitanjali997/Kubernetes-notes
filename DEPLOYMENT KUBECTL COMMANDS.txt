@@ -1,0 +1,5 @@
+Kubectl create -f deployment-definition.yml
+
+Kubectl get deployments
+
+Kubectl get all (this gives info about all: pods, replicas and deployment)

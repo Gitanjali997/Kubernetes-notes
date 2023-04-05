@@ -1,0 +1,17 @@
+	• This service is used when the pods internally wants to communication with each other in a cluster. Example; frontend backend database applications communicating with each other.
+
+	• Service-definition.yml:
+
+		apiVersion: v1
+		Kind: Service
+		Metadata:
+		  name: myapp
+		Spec:
+		 type: ClusterIP
+		 ports:
+		  - targetPort: 80
+		    port: 80
+		 selector:      #this should refer labels of pod
+		   app: myapp
+
+

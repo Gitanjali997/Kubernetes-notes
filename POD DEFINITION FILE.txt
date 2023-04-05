@@ -1,0 +1,31 @@
+	• Kubernetes uses YAML files as inputs for the creation of objects such as POD's, replicas, deployment services, etc all of these follow similar structure.
+
+	• Kubernetes definition file always contains 4 top level fields: API version, kind, metadata and spec. These are the top level or root level properties. These are also required fields so you must have them in your configuration file.
+
+	• APIVERSION: The first one is the API version. This is the version of the Kubernetes API you're using to create the objects.
+
+		KIND	VERSION
+		POD	V1
+		SERVICE	V1
+		REPLICASET	APPS/V1
+		DEPLOYMENT	APPS/V1
+	
+	• KIND: The kind refers to the type of object we are trying to create which in this case happensto be a POD.
+
+	• METADATA: The metadata is data about the object like its name, labels etc. You cannot add any other property as you wish under this. However, under labels you can have any kind of key or value pairs as you see fit.
+
+	• SPEC: The last section in the configuration file is the specification section. This is where we would provide additional information to Kubernetes pertaining to that object (e.g., containers etc.)
+
+	• SAMPLE POD DEFINITION FILE:
+
+		apiVersion:dv1
+		Kind: Pod
+		Metadata:
+		 name: myapp-pod
+		 labels:
+		   app: myapp
+		   type: frontend
+		Spec:
+		  containers:
+		    - name: nginx-conatiner
+		       image: nginx

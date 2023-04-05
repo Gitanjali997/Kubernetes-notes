@@ -1,0 +1,9 @@
+Kubectl create -f replicaset-definition.yml
+
+Kubectl get replicaset
+
+Kubectl delete replicaset myapp-replicaset (will delete all underlying pods also)
+
+Kubectl replace -f replicaset-definition.yml
+
+Kubectl scale --replicas=6 -f replicaset-definition.yml (to scale pods)

@@ -1,0 +1,16 @@
+	• For every microservice we need to have separate pod/deployment definition file and service definition file and needs to be deployed separately.
+
+	• For user facing applications we should use node port service and for backend services/applications we should use clusterIP service if these services are to be accessed by other servers or frontend servers.
+
+	• For defining username and password for database server in pod definition (not an ideal solution, we should use vaults ideally for storing credentials) :
+
+		Spec:
+		 containers:
+		  - name:
+		     image:
+		     ports:
+		     env:
+		      - name: POSTGRES_USER
+		        value: "postgres"
+		      - name: POSTGRES_PASSWORD
+		        value: "postgres"
